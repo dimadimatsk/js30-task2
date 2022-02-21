@@ -2,10 +2,10 @@ const popularUrl =
   "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=625e1a866d0f7ad42fefa918d84f3531";
 
 async function getData(url) {
+  const mainPage = document.querySelector(".main");
+  mainPage.innerHTML = "";
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data);
-  //   showData(data);
   let howMuchFilms = data.results.length;
   for (let i = 0; i < howMuchFilms; i++) {
     createFilmCard(data, i);
